@@ -1,0 +1,80 @@
+{
+  "nama": "Listya Nur Fadilah",
+  "nim": "242505028",
+  "profesi": "Mahasiswi",
+  "prodi": "Sistem Informasi",
+  "perguruanTinggi": "Univeritas Ma'soem",
+  "jenjang": "S1",
+  "statusAkademik": "Mahasiswi Aktif",
+  "bidangMinat": "Software Development",
+  "careerGoal": "Aspiring Software Developer",
+
+  "aboutTitle": "Halo, saya Listya!",
+  "aboutDescription": "Saya merupakan mahasiswi Program Studi Sistem Informasi yang memiliki ketertarikan dalam bidang pengembangan perangkat lunak. Saat ini, saya sedang mempelajari dan mengembangkan kemampuan dalam pemrograman serta pembuatan aplikasi berbasis web dan mobile. Saya memiliki motivasi untuk terus belajar, memperoleh pengalaman, dan mengembangkan kemampuan sebagai calon Software Developer.",
+
+  "skills": [
+    {
+      "id": 1,
+      "kategori": "Programming",
+      "icon": "code-slash-outline",
+      "items": ["PHP", "JavaScript", "TypeScript"]
+    },
+    {
+      "id": 2,
+      "kategori": "Web Development",
+      "icon": "globe-outline",
+      "items": ["HTML", "CSS"]
+    },
+    {
+      "id": 3,
+      "kategori": "Mobile Development",
+      "icon": "phone-portrait-outline",
+      "items": ["React Native", "Expo"]
+    },
+    {
+      "id": 4,
+      "kategori": "Database",
+      "icon": "server-outline",
+      "items": ["MySQL", "SQL"]
+    },
+    {
+      "id": 5,
+      "kategori": "Development Tools",
+      "icon": "construct-outline",
+      "items": ["Visual Studio Code", "XAMPP"]
+    }
+  ],
+
+  "hobbies": [
+    {
+      "id": 1,
+      "icon": "book-outline",
+      "nama": "Reading Novels",
+      "deskripsi": "Menikmati kegiatan membaca novel di waktu luang."
+    },
+    {
+      "id": 2,
+      "icon": "walk-outline",
+      "nama": "Running",
+      "deskripsi": "Menikmati aktivitas berlari untuk menjaga kebugaran tubuh."
+    },
+    {
+      "id": 3,
+      "icon": "musical-notes-outline",
+      "nama": "Listening to Music",
+      "deskripsi": "Menikmati berbagai musik untuk menemani aktivitas."
+    },
+    {
+      "id": 4,
+      "icon": "film-outline",
+      "nama": "Watching Action Movies",
+      "deskripsi": "Menyukai film bergenre action."
+    },
+    {
+      "id": 5,
+      "icon": "code-slash-outline",
+      "nama": "Programming",
+      "deskripsi": "Mempelajari pemrograman dan mencoba membuat aplikasi."
+    }
+  ]
+}

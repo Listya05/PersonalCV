@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Personal CV & Portfolio Mobile App",
+      "category": "Mobile Development",
+      "description": "Aplikasi CV dan portofolio pribadi berbasis mobile untuk menampilkan profil, informasi akademik, keterampilan, hobi, dan informasi kontak.",
+      "technologies": ["React Native", "Expo", "TypeScript", "JSON"],
+      "status": "In Development",
+      "icon": "phone-portrait-outline"
+    },
+    {
+      "id": 2,
+      "title": "Sistem Informasi Absensi PESMA Al Ma’soem",
+      "category": "Web Development",
+      "description": "Sistem informasi absensi mahasiswi berbasis web untuk membantu pencatatan kehadiran dan penyajian rekap absensi di Pesantren Mahasiswa Al Ma’soem.",
+      "technologies": ["PHP", "MySQL", "Bootstrap", "JavaScript"],
+      "status": "In Development",
+      "icon": "globe-outline"
+    }
+  ]
+}

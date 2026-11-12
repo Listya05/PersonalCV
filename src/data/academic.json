@@ -1,0 +1,38 @@
+{
+  "academicIdentity": {
+    "nama": "Listya Nur Fadilah",
+    "nim": "242505028",
+    "mataKuliah": "Pemrograman Mobile 2",
+    "dosen": "Iin, M.Kom"
+  },
+  "currentScore": {
+    "nilai": 95,
+    "grade": "A"
+  },
+  "learningPoints": {
+    "total": 285000,
+    "unit": "LP"
+  },
+  "learningProgress": [
+    {
+      "id": 1,
+      "nama": "Attendance",
+      "persentase": 95
+    },
+    {
+      "id": 2,
+      "nama": "Practice",
+      "persentase": 90
+    },
+    {
+      "id": 3,
+      "nama": "Quest",
+      "persentase": 95
+    },
+    {
+      "id": 4,
+      "nama": "Challenge",
+      "persentase": 100
+    }
+  ]
+}

@@ -1,98 +1,141 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { SafeAreaView } from "react-native-safe-area-context";
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+// IMPORT DATA JSON
+import profileData from "../data/profile.json";
+
+// IMPORT COMPONENTS
+import ProfileHeader from "../components/ProfileHeader";
+
+// IMPORT THEME
+import { useAppTheme } from "../context/ThemeContext";
+
+function HomeContent() {
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 380;
+
+  const { isDark, colors } = useAppTheme();
+
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
+    <SafeAreaView
+      style={[styles.safeArea, { backgroundColor: colors.background }]}
+    >
+      <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
+
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+        style={{ backgroundColor: colors.background }}
+      >
+        {/* PROFILE HEADER */}
+        <ProfileHeader data={profileData} />
+
+        {/* INTRO BANNER */}
+        <View
+          style={[
+            styles.banner,
+            isSmallScreen && styles.bannerSmall,
+            { backgroundColor: colors.banner },
+          ]}
+        >
+          <Text style={[styles.bannerTitle, { color: colors.bannerText }]}>
+            Let's Keep Growing!
+          </Text>
+
+          <Text
+            style={[styles.bannerDescription, { color: colors.bannerText }]}
+          >
+            Terus belajar, berkembang, dan menciptakan hal-hal baru melalui
+            pengalaman dan pengetahuan.
+          </Text>
+        </View>
+
+        {/* FOOTER */}
+        <View style={[styles.footer, { backgroundColor: colors.banner }]}>
+          <Text style={styles.footerDescription}>Personal CV & Portfolio</Text>
+
+          <Text style={styles.footerCopyright}>
+            © 2026 All Rights Reserved.
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
+export default function Index() {
+  return <HomeContent />;
 }
+
+// ==========================================
+// STYLESHEET
+// ==========================================
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
   safeArea: {
     flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
   },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+
+  scrollContent: {
+    flexGrow: 1,
   },
-  title: {
-    textAlign: 'center',
+
+  banner: {
+    marginHorizontal: 24,
+    marginVertical: 35,
+    paddingVertical: 35,
+    paddingHorizontal: 28,
+    borderRadius: 20,
+    alignItems: "center",
   },
-  code: {
-    textTransform: 'uppercase',
+
+  bannerSmall: {
+    marginHorizontal: 16,
+    paddingHorizontal: 20,
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+
+  bannerTitle: {
+    fontSize: 25,
+    fontWeight: "800",
+    textAlign: "center",
+    marginBottom: 12,
+  },
+
+  bannerDescription: {
+    fontSize: 14,
+    lineHeight: 23,
+    textAlign: "center",
+  },
+
+  footer: {
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    alignItems: "center",
+  },
+
+  footerName: {
+    color: "#FFFFFF",
+    fontSize: 17,
+    fontWeight: "700",
+    marginBottom: 6,
+  },
+
+  footerDescription: {
+    color: "#E9A98E",
+    fontSize: 13,
+    marginBottom: 15,
+  },
+
+  footerCopyright: {
+    color: "#B9C4D1",
+    fontSize: 11,
   },
 });
